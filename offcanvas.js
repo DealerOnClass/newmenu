@@ -16,6 +16,7 @@ function UpdateDimensions() {
     var navHeight        = $('[offcanvas-nav]').height();
     var windowHeight     = $(window).height();
     var windowWidth      = $(window).width();
+    var navWidth         = windowWidth * .75;
 
     if ( windowWidth > 767 ) {
         var headerHeight = headerHeight - navHeight;
@@ -37,6 +38,8 @@ function UpdateDimensions() {
     $('[offcanvas-set-height="oncanvas-header"]').css("height", offsetHeight);
     $('[offcanvas-set-top="oncanvas-header"]').css("top", offsetTop);
     $('[offcanvas-set-top="offcanvas-nav"]').css("top", offsetNav);
+
+    $('[offcanvas-width]').css("width", navWidth);
 };
 
 function UpdateCollapse() {
