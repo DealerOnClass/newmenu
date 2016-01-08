@@ -44,10 +44,7 @@ function UpdateCollapse() {
         $(this).attr("data-toggle", "collapse");
         $(this).addClass("collapse");
 
-        var nextID = $(this).attr("href");
-
         $(this).attr("onclick", "toggleCollapse(this)");
-        $(this).attr("data-keep", nextID);
         $(this).attr("href","");
     });
 };
@@ -57,11 +54,10 @@ function RevertCollapse() {
         $(this).removeAttr("data-toggle");
         $(this).removeClass("collapse");
 
-        var oldHref = $(this).attr("data-keep");
+        var Href = $(this).attr("data-url");
 
         $(this).removeAttr("onclick");
-        $(this).removeAttr("data-keep");
-        $(this).attr("href", oldHref);
+        $(this).attr("href", Href);
 
         $(this).next().removeClass("in");
     });

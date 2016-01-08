@@ -49,3 +49,5 @@
     or just check the structure of '.contact'
 
 18. Removed '.col-xs-12' class right after '.contact' // to get right of padding on sides
+
+19. Added 'data-url' to "#parent_$" // its the href for scripting
