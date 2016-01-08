@@ -71,6 +71,12 @@
     .offcanvas-nav .navbar-collapse-wrapper {
         width: 18em;
     }
+    .offcanvas-nav .navbar-collapse-wrapper .dropdown-menu {
+        position: relative;
+        float: none;
+        display: block;
+        height: 0;
+    }
 }
 /*
  *  Navbar Overrides
