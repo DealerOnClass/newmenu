@@ -4,12 +4,10 @@
 //
 $(document).ready( function() {
     UpdateDimensions();
-    UpdateCollapse();
 });
 
 $(window).resize( function() {
     UpdateDimensions();
-    UpdateCollapse();
 });
 
 function UpdateDimensions() {
@@ -24,11 +22,13 @@ function UpdateDimensions() {
         var offsetHeight = windowHeight - ( headerHeight + navHeight );
         var offsetTop    = headerHeight + navHeight;
         var offsetNav    = navHeight;
+        RevertCollapse();
     } else {
         var headerHeight = headerHeight;
         var offsetHeight = windowHeight - headerHeight;
         var offsetTop    = headerHeight;
         var offsetNav    = 0;
+        UpdateCollapse();
     };
 
     $('[offcanvas-set-height="window"]').css("height", windowHeight);
@@ -42,19 +42,31 @@ function UpdateDimensions() {
 function UpdateCollapse() {
     $('#offcanvas-collapse .dropdown > a').each(function(i) {
         $(this).attr("data-toggle", "collapse");
-        console.log($(this).attr("data-toggle"));   // debug
-
         $(this).addClass("collapse");
-        console.log($(this).attr("class"));         // debug
 
         var nextID = $(this).attr("href");
-        var keepID = nextID;
-        var nextID = nextID.split('.')[0];          // remove url
-        var nextID = nextID.split('/')[0];          // remove slash
-        console.log(nextID);                        // debug
 
-        $(this).attr("data-keep", keepID);
-        $(this).attr("href", "#" + nextID);
-        $(this).next().attr("id", nextID);
+        $(this).attr("onclick", "toggleCollapse(this)");
+        $(this).attr("data-keep", nextID);
+        $(this).attr("href","");
     });
 };
+
+function RevertCollapse() {
+    $('#offcanvas-collapse .dropdown > a').each(function(i) {
+        $(this).removeAttr("data-toggle");
+        $(this).removeClass("collapse");
+
+        var oldHref = $(this).attr("data-keep");
+
+        $(this).removeAttr("onclick");
+        $(this).removeAttr("data-keep");
+        $(this).attr("href", oldHref);
+
+        $(this).next().removeClass("in");
+    });
+};
+
+function toggleCollapse(el) {
+    $(el).next().collapse('toggle');
+}
