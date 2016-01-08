@@ -1,0 +1,43 @@
+//
+//  DOCS
+//
+//  Double Quotes denotes css selectors.
+//  Single Quotes denotes html attributes.
+//  Nested Quotes as string / irrelevant to legend.
+//  Hyphens denotes new file.
+//
+1.  Comment out snap.reset.js
+
+2.  Wrapped "nav" and "#content" with ".offcanvas"
+    Added 'offcanvas-set-top="oncanvas-header"'
+
+3.  Added ".offcanvas-nav" to "nav"
+
+4.  Replaced ".snap-content" with ".offcanvas-body"
+    Wrapped contents with ".offcanvas-inner"
+
+5.  Added -offcanvas.js-
+
+6.  Added 'data-toggle="collapse"' to "#open-right"
+    Added 'href="#offcanvas-collapse"'
+
+7.  Added "#offcanvas-collapse" to ".navbar-collapse"
+    Added ".width"
+
+8.  Added -offcanvas.css-
+
+9.  Added ".offcanvas-wrapper" to "body"
+
+10. Added 'oncanvas-header' to ".headerWrapper"
+
+11. Added 'offcanvas-set-height="oncanvas-header"' and
+          'offcanvas-set-width="window"' to "#content"
+
+12. Wrapped contents of ".navbar-collapse" width ".navbar-collapse-wrapper"
+    Added 'offcanvas-set-height="oncanvas-header"'
+
+13. Added 'offcanvas-nav' to ".offcanvas-nav"
+
+14. Added 'offcanvas-set-top="offcanvas-nav"' to '.offcanvas-inner'
+
+15. Commented out ".navbar-header"
