@@ -53,6 +53,9 @@
         left: 0;
         top: 0;
     }
+    .offcanvas-nav .navbar-collapse {
+        width: auto !important;
+    }
     .offcanvas-nav .navbar-collapse-wrapper {
         height: auto !important;
     }

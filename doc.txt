@@ -41,3 +41,11 @@
 14. Added 'offcanvas-set-top="offcanvas-nav"' to '.offcanvas-inner'
 
 15. Commented out ".navbar-header"
+
+16. Removed '.static-to-nav' class // to get rid of position absolute
+
+17. Removed '.navbar-toggle' class and moved below '.btn-group'
+    Added '.btn' and '.btn-nav' and '.btn-cta' and '.pull-right'
+    or just check the structure of '.contact'
+
+18. Removed '.col-xs-12' class right after '.contact' // to get right of padding on sides
