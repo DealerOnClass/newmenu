@@ -87,6 +87,18 @@ $('#offcanvas-collapse').on('hide.bs.collapse', function(e) {
     }
 });
 
+$('#offcanvas-collapse').on('show.bs.collapse', function(e) {
+    if (e.target == this) {
+        $('.offcanvas-backdrop').toggleClass('invisible');
+    }
+});
+
+$('#offcanvas-collapse').on('hidden.bs.collapse', function(e) {
+    if (e.target == this) {
+        $('.offcanvas-backdrop').toggleClass('invisible');
+    }
+});
+
 $('.offcanvas-backdrop').on('click', function() {
     $('#offcanvas-collapse').collapse('hide');
 });
