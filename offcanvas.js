@@ -81,21 +81,21 @@ function toggleCollapse(el) {
 //      $('.offcanvas').removeClass('offcanvas-open');
 //  });
 
-function OffcanvasOpen(el) {
-    $(el).toggleClass('hidden');
+$('#offcanvas-open').on('click', function() {
+    $(this).toggleClass('hidden');
     $('#offcanvas-close').toggleClass('hidden');
     $('.offcanvas').toggleClass('offcanvas-open');
     $('.offcanvas').toggleClass('offcanvas-closed');
     $('#offcanvas-collapse').collapse('toggle');
-};
+});
 
-function OffcanvasClose(el) {
-    $(el).toggleClass('hidden');
+$('#offcanvas-close').on('click', function() {
+    $(this).toggleClass('hidden');
     $('#offcanvas-open').toggleClass('hidden');
     $('.offcanvas').toggleClass('offcanvas-open');
     $('.offcanvas').toggleClass('offcanvas-closed');
     $('#offcanvas-collapse').collapse('toggle');
-};
+});
 
 $('.offcanvas-backdrop').on('click', function() {
     $('#offcanvas-close').toggleClass('hidden');
