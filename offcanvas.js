@@ -71,11 +71,13 @@ function toggleCollapse(el) {
 }
 
 //  //  Offcanvas-Backdrop
-//  $('#offcanvas-collapse').on('show.bs.collapse', function() {
+//  $('#offcanvas-collapse').on('show.bs.collapse', function(e) {
+//      e.stopPropagation()
 //      $('.offcanvas').addClass('offcanvas-open');
 //  });
 //
-//  $('#offcanvas-collapse').on('hidden.bs.collapse', function() {
+//  $('#offcanvas-collapse').on('hidden.bs.collapse', function(e) {
+//      e.stopPropagation()
 //      $('.offcanvas').removeClass('offcanvas-open');
 //  });
 
