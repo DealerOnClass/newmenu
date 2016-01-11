@@ -82,25 +82,21 @@ function toggleCollapse(el) {
 //  });
 
 $('#offcanvas-open').on('click', function() {
-    $(this).toggleClass('hidden');
-    $('#offcanvas-close').toggleClass('hidden');
-    $('.offcanvas').toggleClass('offcanvas-open');
-    $('.offcanvas').toggleClass('offcanvas-closed');
-    $('#offcanvas-collapse').collapse('toggle');
+    ToggleNav();
 });
 
 $('#offcanvas-close').on('click', function() {
-    $(this).toggleClass('hidden');
-    $('#offcanvas-open').toggleClass('hidden');
-    $('.offcanvas').toggleClass('offcanvas-open');
-    $('.offcanvas').toggleClass('offcanvas-closed');
-    $('#offcanvas-collapse').collapse('toggle');
+    ToggleNav();
 });
 
 $('.offcanvas-backdrop').on('click', function() {
+    ToggleNav();
+});
+
+function ToggleNav() {
     $('#offcanvas-close').toggleClass('hidden');
     $('#offcanvas-open').toggleClass('hidden');
-    $('.offcanvas').toggleClass('offcanvas-open');
-    $('.offcanvas').toggleClass('offcanvas-closed');
+    $('.offcanvas-wrapper').toggleClass('offcanvas-open');
+    $('.offcanvas-wrapper').toggleClass('offcanvas-closed');
     $('#offcanvas-collapse').collapse('toggle');
-});
+};

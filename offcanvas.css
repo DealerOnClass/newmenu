@@ -52,17 +52,26 @@
     left: auto;
     right: auto;
 }
+.offcanvas-push .offcanvas-links {
+    float: left;
+}
 
 .offcanvas-left .offcanvas-nav {
     position: absolute;
     right: auto;
     left: 0;
 }
+.offcanvas-left .offcanvas-links {
+    float: left;
+}
 
 .offcanvas-right .offcanvas-nav {
     position: absolute;
     left: auto;
     right: 0;
+}
+.offcanvas-right .offcanvas-links {
+    float: right;
 }
 /*
  *  Offcanvas Backdrop
