@@ -95,10 +95,7 @@
                             </div>
                         </div>
                         <div class="contact row">
-                            <button id="open-right" href="#offcanvas-collapse" type="button" class="btn btn-nav btn-cta border-radius-x" data-toggle="collapse">
-                                <span id="menu-icon" class="fa fa-bars fa-lg"></span>
-                            </button>
-                            <div class="btn-group pull-right">
+                            <div class="btn-group">
                                 <a class="btn btn-nav btn-nav1 callNowClass" id="clickToCallHeaderEvent">
                                     <i class="fa fa-mobile hidden-xxs"></i>
                                     <font> Call</font> <span class="callNowClass">555-222-3333</span>
@@ -107,13 +104,21 @@
                                     <i class="fa fa-road hidden-xxs"></i> Directions
                                 </a>
                             </div>
+                            <div class="pull-right">
+                                <button id="offcanvas-open" onclick="OffcanvasOpen(this)" type="button" class="btn btn-nav btn-cta border-radius-x">
+                                    <span id="menu-icon" class="fa fa-bars fa-lg fa-fw"></span>
+                                </button>
+                                <button id="offcanvas-close" onclick="OffcanvasClose(this)" type="button" class="hidden btn btn-nav btn-cta border-radius-x">
+                                    <span id="menu-icon" class="fa fa-remove fa-lg fa-fw"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </header>
         </div>
 
-        <div class="offcanvas" offcanvas-set-top="oncanvas-header">
+        <div class="offcanvas offcanvas-right" offcanvas-set-top="oncanvas-header">
 
             <nav class="offcanvas-nav" offcanvas-nav>
                 <div id="nav" class="full">
@@ -210,6 +215,8 @@
                     </div>
                 </div>
             </nav>
+
+            <div class="offcanvas-backdrop"></div>
 
             <div class="offcanvas-body" id="content">
                 <div class="offcanvas-inner" offcanvas-set-height="oncanvas-header" offcanvas-set-width="window" offcanvas-set-top="offcanvas-nav">

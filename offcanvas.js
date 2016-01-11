@@ -69,3 +69,26 @@ function RevertCollapse() {
 function toggleCollapse(el) {
     $(el).next().collapse('toggle');
 }
+
+//  //  Offcanvas-Backdrop
+//  $('#offcanvas-collapse').on('show.bs.collapse', function() {
+//      $('.offcanvas').addClass('offcanvas-open');
+//  });
+//
+//  $('#offcanvas-collapse').on('hidden.bs.collapse', function() {
+//      $('.offcanvas').removeClass('offcanvas-open');
+//  });
+
+function OffcanvasOpen(el) {
+    $(el).toggleClass('hidden');
+    $('#offcanvas-close').toggleClass('hidden');
+    $('.offcanvas').toggleClass('offcanvas-open');
+    $('#offcanvas-collapse').collapse('toggle');
+};
+
+function OffcanvasClose(el) {
+    $(el).toggleClass('hidden');
+    $('#offcanvas-open').toggleClass('hidden');
+    $('.offcanvas').toggleClass('offcanvas-open');
+    $('#offcanvas-collapse').collapse('toggle');
+};
