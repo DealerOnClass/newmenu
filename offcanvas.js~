@@ -71,21 +71,14 @@ function toggleCollapse(el) {
 }
 
 //  Offcanvas-Backdrop
-$('#offcanvas-collapse').on('show.bs.collapse', function(e) {
-    //  e.stopPropagation();
+$('#offcanvas-collapse').on('shown.bs.collapse', function(e) {
+    e.stopPropagation()
     $('.offcanvas-backdrop').addClass('active');
-    $('#menu-icon').removeClass('fa-bars').addClass('fa-remove');
 });
 
-$('#offcanvas-collapse').on('hide.bs.collapse', function(e) {
-    //  e.stopPropagation();
-
-    if (e.target == this) {
-        $('.offcanvas-backdrop').removeClass('active');
-        $('#menu-icon').removeClass('fa-remove').addClass('fa-bars');
-    }
-    //      console.log(e.target);
-    //      console.log(this);
+$('#offcanvas-collapse').on('hidden.bs.collapse', function(e) {
+    e.stopPropagation()
+    $('.offcanvas-backdrop').removeClass('active');
 });
 
 //  $('#offcanvas-open').on('click', function() {
@@ -98,11 +91,10 @@ $('#offcanvas-collapse').on('hide.bs.collapse', function(e) {
 //      setTimeout( ToggleBackdrop(), 3500 );
 //  });
 //
-$('.offcanvas-backdrop').on('click', function() {
-    $('#offcanvas-collapse').collapse('hide');
-    //  ToggleNav();
-    //  setTimeout( ToggleBackdrop(), 3500 );
-});
+//  $('.offcanvas-backdrop').on('click', function() {
+//      ToggleNav();
+//      setTimeout( ToggleBackdrop(), 3500 );
+//  });
 //
 //  function ToggleNav() {
 //      $('#offcanvas-close').toggleClass('hidden');
@@ -110,6 +102,6 @@ $('.offcanvas-backdrop').on('click', function() {
 //      $('#offcanvas-collapse').collapse('toggle');
 //  };
 //
-//  function ToggleBackdrop() {
-//      $('.offcanvas-backdrop').toggleClass('active');
-//  }
+function ToggleBackdrop() {
+    $('.offcanvas-backdrop').toggleClass('active');
+}
