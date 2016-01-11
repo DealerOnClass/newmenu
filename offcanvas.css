@@ -98,7 +98,7 @@
         transition-timing-function: ease;
     }
 
-    .offcanvas-open .offcanvas-backdrop {
+    .offcanvas-backdrop.active {
         opacity: 1;
     }
 }

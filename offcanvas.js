@@ -83,20 +83,25 @@ function toggleCollapse(el) {
 
 $('#offcanvas-open').on('click', function() {
     ToggleNav();
+    setTimeout( ToggleBackdrop(), 3500 );
 });
 
 $('#offcanvas-close').on('click', function() {
     ToggleNav();
+    setTimeout( ToggleBackdrop(), 3500 );
 });
 
 $('.offcanvas-backdrop').on('click', function() {
     ToggleNav();
+    setTimeout( ToggleBackdrop(), 3500 );
 });
 
 function ToggleNav() {
     $('#offcanvas-close').toggleClass('hidden');
     $('#offcanvas-open').toggleClass('hidden');
-    $('.offcanvas-wrapper').toggleClass('offcanvas-open');
-    $('.offcanvas-wrapper').toggleClass('offcanvas-closed');
     $('#offcanvas-collapse').collapse('toggle');
 };
+
+function ToggleBackdrop() {
+    $('.offcanvas-backdrop').toggleClass('active');
+}
