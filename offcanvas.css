@@ -27,10 +27,11 @@
     display: table;
     overflow: hidden;
     zoom: 1;
+    z-index: 1040;
 }
 
 .offcanvas-nav {
-    z-index: 1050;
+    z-index: 1040;
 }
 
 .offcanvas-body {
@@ -149,3 +150,21 @@
 .offcanvas-nav .navbar-collapse {
     max-height: 100%;
 }
+/*
+ *  Header Overrides
+ */
+.headerWrapper {
+    position: relative;
+    z-index: 1000;
+}
+/*
+ *  Modal Overrides
+ */
+/*.modal {*/
+    /*background-color: rgba(0,0,0,0);*/
+    /*-webkit-transition: background-color .15s linear;*/
+    /*transition: background-color .15s linear;*/
+/*}*/
+/*.modal.in {*/
+    /*background-color: rgba(0,0,0,0.5);*/
+/*}*/
