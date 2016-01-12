@@ -2,6 +2,10 @@
 //
 //  Offcanvas Magic
 //
+//  $(document).ready( function() {
+//      UpdateDimensions();
+//  });
+
 setTimeout( function() {
     UpdateDimensions();
 }, 100);
