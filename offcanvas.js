@@ -45,24 +45,24 @@ function UpdateDimensions() {
 function UpdateCollapse() {
     $('#offcanvas-collapse .dropdown > a').each(function(i) {
         $(this).attr("data-toggle", "collapse");
-        $(this).addClass("collapse");
 
         $(this).attr("onclick", "toggleCollapse(this)");
         $(this).attr("href","");
+
+        $(this).next().addClass("collapse");
     });
 };
 
 function RevertCollapse() {
     $('#offcanvas-collapse .dropdown > a').each(function(i) {
         $(this).removeAttr("data-toggle");
-        $(this).removeClass("collapse");
 
         var Href = $(this).attr("data-url");
 
         $(this).removeAttr("onclick");
         $(this).attr("href", Href);
 
-        $(this).next().removeClass("in");
+        $(this).next().removeClass("collapse");
     });
 };
 
