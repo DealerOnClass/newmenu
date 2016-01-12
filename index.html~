@@ -130,7 +130,7 @@
                                         <li class="dropdown">
                                             <a id="parent_1" href="searchnew.aspx" class="qmparent newvehiclesdropdown dropdown-toggle" data-hover="dropdown">New Vehicles</a>
                                             <ul class="dropdown-menu nopad">
-                                                <li><a id="1_child_1" href="searchnew.html" class="hidden-first-child">New Vehicles</a></li>
+                                                <li><a id="1_child_1" href="searchnew.aspx" class="hidden-first-child">New Vehicles</a></li>
                                                 <li class="hideOnMobile"><a id="1_child_2" class="searchinventorychild" href="searchnew.html">Search Inventory</a></li>
                                                 <li><a id="1_child_3" class="scheduletestdrivechild" href="testdrive.aspx">Schedule Test Drive</a></li>
 

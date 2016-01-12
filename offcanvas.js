@@ -70,12 +70,14 @@ function toggleCollapse(el) {
     $(el).next().collapse('toggle');
 }
 
+////////////////////////////////////////
 //
 //  Offcanvas-Backdrop
 //
 $('#offcanvas-collapse').on('show.bs.collapse', function(e) {
     if (e.target == this) {
         $('.offcanvas-backdrop').addClass('active');
+        $('.offcanvas-backdrop').toggleClass('invisible');
         $('#menu-icon').removeClass('fa-bars').addClass('fa-remove');
     }
 });
@@ -84,12 +86,6 @@ $('#offcanvas-collapse').on('hide.bs.collapse', function(e) {
     if (e.target == this) {
         $('.offcanvas-backdrop').removeClass('active');
         $('#menu-icon').removeClass('fa-remove').addClass('fa-bars');
-    }
-});
-
-$('#offcanvas-collapse').on('show.bs.collapse', function(e) {
-    if (e.target == this) {
-        $('.offcanvas-backdrop').toggleClass('invisible');
     }
 });
 
