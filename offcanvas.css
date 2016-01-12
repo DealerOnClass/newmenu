@@ -160,11 +160,23 @@
 /*
  *  Modal Overrides
  */
-/*.modal {*/
-    /*background-color: rgba(0,0,0,0);*/
-    /*-webkit-transition: background-color .15s linear;*/
-    /*transition: background-color .15s linear;*/
-/*}*/
-/*.modal.in {*/
-    /*background-color: rgba(0,0,0,0.5);*/
-/*}*/
+.modal {
+    z-index: 1060;
+}
+.modal-backdrop {
+    z-index: 1050;
+}
+
+
+
+
+     /*100 Land*/
+   /*+ 130 Home*/
+   /*= 230*/
+
+   /*+  15 Demolish*/
+   /*+  15 Permits*/
+   /*= 260*/
+
+   /*-  13 Down*/
+   /*= 247 Loan Amount*/

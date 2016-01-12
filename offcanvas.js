@@ -98,3 +98,14 @@ $('#offcanvas-collapse').on('hidden.bs.collapse', function(e) {
 $('.offcanvas-backdrop').on('click', function() {
     $('#offcanvas-collapse').collapse('hide');
 });
+
+////////////////////////////////////////
+//
+//  Modal Fix
+//
+$('[data-toggle="modal"]').on('click', function() {
+    //  Get modal
+    var thisModal = $(this).attr("data-target");
+    //  Move modal
+    $("body").append($(thisModal));
+});
