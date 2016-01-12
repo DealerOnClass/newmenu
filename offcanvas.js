@@ -2,9 +2,9 @@
 //
 //  Offcanvas Magic
 //
-$(document).ready( function() {
+setTimeout( function() {
     UpdateDimensions();
-});
+}, 100);
 
 $(window).resize( function() {
     UpdateDimensions();
