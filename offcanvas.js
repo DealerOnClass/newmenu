@@ -106,6 +106,15 @@ $('.offcanvas-backdrop').on('click', function() {
 $('[data-toggle="modal"]').on('click', function() {
     //  Get modal
     var thisModal = $(this).attr("data-target");
+    //  Create restore point
+    $(thisModal).after("<div data-restore='" + thisModal + "'></div>");
     //  Move modal
     $("body").append($(thisModal));
+});
+
+$('.modal').on('hide.bs.modal', function() {
+    //  Get modal
+    var thisModal = $(this).attr("id");
+    //  Move modal to restore point
+    $('[data-restore="#' + thisModal + '"]').replaceWith($(this));
 });
