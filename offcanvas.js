@@ -10,6 +10,10 @@ setTimeout( function() {
     UpdateDimensions();
 }, 100);
 
+setTimeout( function() {
+    $(window).trigger('resize');
+}, 400);
+
 $(window).resize( function() {
     UpdateDimensions();
 });
