@@ -74,6 +74,13 @@
 .offcanvas-right .offcanvas-links {
     float: right;
 }
+.offcanvas-app .offcanvas-nav {
+    top: 0;
+    z-index: 1140;
+}
+.offcanvas-app .offcanvas-backdrop {
+    z-index: 1100;
+}
 /*
  *  Offcanvas Backdrop
  */
