@@ -111,9 +111,19 @@ $('.offcanvas-backdrop').on('click', function() {
 //
 //  Modal Fix
 //
-$('[data-toggle="modal"]').on('click', function() {
+//  $('[data-toggle="modal"]').on('click', function() {
+//      //  Get modal
+//      var thisModal = $(this).attr("data-target");
+//      //  Create restore point
+//      $(thisModal).after("<div data-restore='" + thisModal + "'></div>");
+//      //  Move modal
+//      $("body").append($(thisModal));
+//  });
+
+$('.modal').on('show.bs.modal', function() {
     //  Get modal
-    var thisModal = $(this).attr("data-target");
+    var thisModal = $(this).attr("id");
+    var thisModal = "#" + thisModal;
     //  Create restore point
     $(thisModal).after("<div data-restore='" + thisModal + "'></div>");
     //  Move modal
