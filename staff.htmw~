@@ -30,10 +30,6 @@
              *
              *  - Alberto
              */
-            .staff.media {                  /*  Override bootstrap default media margin */
-                margin-bottom: 2em;
-                margin-top: 2em;
-            }
             .staff-title {
                 position: relative;
             }

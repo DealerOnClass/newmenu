@@ -24,35 +24,17 @@
         <link rel="stylesheet" href="cms.css">
         <link rel="stylesheet" href="offcanvas.css">
         <style>
-            /*
-             *  Added to preserve text-overflow within
-             *  specified media query.
-             *
-             *  - Alberto
-             */
-            .staff.media {                  /*  Override bootstrap default media margin */
-                margin-bottom: 2em;
-                margin-top: 2em;
+            .staff-name,
+            .staff-title,
+            .staff-email {
+                width: 90%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
             }
-            .staff-title {
-                position: relative;
-            }
-            @media (min-width: 539px) {
-                .staff-title-name {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 90%;             /*  Set width for long titles */
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                }
-                .staff-title-position {
-                    padding-top: 1.5em;     /*  Keep same */
-                }
-                .staff-contact {
-                    line-height: 1.5;       /*  Keep Same */
-                }
+            .staff-bio {
+                height: 10em;
+                overflow-y: auto;
             }
         </style>
     </head>
@@ -507,81 +489,93 @@
                                         <div class="margin-top" id="tabContent">
                                             <div class="row tab-content">
                                                 <div class="tab-pane fade in active" id="dept_4417">
-                                                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 text-center-xxs staff media">
-                                                        <div class="margin-bottom-1x visible-xxs">
-                                                            <img class="img-circle margin-right-1x" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jonStaff.jpg" height="70" width="70">
-                                                        </div>
-                                                        <div class="media-left hidden-xxs">
-                                                            <img class="img-circle margin-right-1x" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jonStaff.jpg" height="70" width="70">
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <ul class="staff-title list-unstyled">
-                                                                <li class="staff-title-name h4"><attr title="Jax Rothbard Derwood Maryland">Jax Rothbard Derwood Maryland</attr></li>
-                                                                <li class="staff-title-position"><em>President of Sales</em></li>
-                                                            </ul>
-                                                            <ul class="staff-contact list-unstyled hidden-xs">
-                                                                <li class="staff-email"><a href="Jax@RothbardMotors.com">Jax@RothbardMotors.com</a></li>
-                                                                <li class="staff-tel"><a href="584-681-5189">584-681-5189</a></li>
-                                                            </ul>
-                                                            <div class="visible-xs">
-                                                                <a class="btn btn-default" data-toggle="modal" href="#myModal4"><i class="fa fa-info fa-fw"></i></a>
-                                                                <a class="btn btn-default" href="Jax@RothbardMotors.com"><i class="fa fa-phone fa-fw"></i></a>
-                                                                <a class="btn btn-default" href="584-681-5189"><i class="fa fa-envelope fa-fw"></i></a>
-                                                            </div>
-                                                            <div class="hidden-xs">
-                                                                <a class="btn btn-default" data-toggle="modal" href="#myModal4">Read my Bio</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 text-center-xxs staff media">
-                                                        <div class="margin-bottom-1x visible-xxs">
-                                                            <img class="img-circle margin-right-1x" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jonStaff.jpg" height="70" width="70">
-                                                        </div>
-                                                        <div class="media-left hidden-xxs">
-                                                            <img class="img-circle margin-right-1x" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jonStaff.jpg" height="70" width="70">
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <ul class="staff-title list-unstyled">
-                                                                <li class="staff-title-name h4"><attr title="Jax Rothbard Derwood Maryland">Jax Rothbard Derwood Maryland</attr></li>
-                                                                <li class="staff-title-position"><em>President of Sales</em></li>
-                                                            </ul>
-                                                            <ul class="staff-contact list-unstyled hidden-xs">
-                                                                <li class="staff-email"><a href="Jax@RothbardMotors.com">Jax@RothbardMotors.com</a></li>
-                                                                <li class="staff-tel"><a href="584-681-5189">584-681-5189</a></li>
-                                                            </ul>
-                                                            <div class="visible-xs">
-                                                                <a class="btn btn-default" data-toggle="modal" href="#myModal4"><i class="fa fa-info fa-fw"></i></a>
-                                                                <a class="btn btn-default" href="Jax@RothbardMotors.com"><i class="fa fa-phone fa-fw"></i></a>
-                                                                <a class="btn btn-default" href="584-681-5189"><i class="fa fa-envelope fa-fw"></i></a>
-                                                            </div>
-                                                            <div class="hidden-xs">
-                                                                <a class="btn btn-default" data-toggle="modal" href="#myModal4">Read my Bio</a>
+                                                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 text-center-xxs staff">
+                                                        <div class="media">
+                                                            <div class="margin-vert-1x">
+                                                                <div class="margin-bottom-1x visible-xxs">
+                                                                    <img class="img-circle" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jonStaff.jpg" height="70" width="70">
+                                                                </div>
+                                                                <div class="media-left pad-right-1x hidden-xxs">
+                                                                    <img class="img-circle" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jonStaff.jpg" height="70" width="70">
+                                                                </div>
+                                                                <div class="media-body">
+                                                                    <ul class="list-unstyled">
+                                                                        <li class="staff-name h4"><attr title="Jax Rothbard Derwood Maryland">Jax Rothbard Derwood Maryland</attr></li>
+                                                                        <li class="staff-title"><em>President of Sales</em></li>
+                                                                    </ul>
+                                                                    <ul class="list-unstyled hidden-xs">
+                                                                        <li class="staff-email"><a href="Jax@RothbardMotors.com">Jax@RothbardMotors.com</a></li>
+                                                                        <li class="staff-tel"><a href="584-681-5189">584-681-5189</a></li>
+                                                                    </ul>
+                                                                    <div class="visible-xs">
+                                                                        <a class="btn btn-default" data-toggle="modal" href="#myModal4"><i class="fa fa-info fa-fw"></i></a>
+                                                                        <a class="btn btn-default" href="Jax@RothbardMotors.com"><i class="fa fa-phone fa-fw"></i></a>
+                                                                        <a class="btn btn-default" href="584-681-5189"><i class="fa fa-envelope fa-fw"></i></a>
+                                                                    </div>
+                                                                    <div class="hidden-xs">
+                                                                        <a class="btn btn-default" data-toggle="modal" href="#myModal4">Read my Bio</a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 text-center-xxs staff media">
-                                                        <div class="margin-bottom-1x visible-xxs">
-                                                            <img class="img-circle margin-right-1x" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jonStaff.jpg" height="70" width="70">
-                                                        </div>
-                                                        <div class="media-left hidden-xxs">
-                                                            <img class="img-circle margin-right-1x" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jonStaff.jpg" height="70" width="70">
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <ul class="staff-title list-unstyled">
-                                                                <li class="staff-title-name h4"><attr title="Jax Rothbard Derwood Maryland">Jax Rothbard Derwood Maryland</attr></li>
-                                                                <li class="staff-title-position"><em>President of Sales</em></li>
-                                                            </ul>
-                                                            <ul class="staff-contact list-unstyled hidden-xs">
-                                                                <li class="staff-email"><a href="Jax@RothbardMotors.com">Jax@RothbardMotors.com</a></li>
-                                                                <li class="staff-tel"><a href="584-681-5189">584-681-5189</a></li>
-                                                            </ul>
-                                                            <div class="visible-xs">
-                                                                <a class="btn btn-default" data-toggle="modal" href="#myModal4"><i class="fa fa-info fa-fw"></i></a>
-                                                                <a class="btn btn-default" href="Jax@RothbardMotors.com"><i class="fa fa-phone fa-fw"></i></a>
-                                                                <a class="btn btn-default" href="584-681-5189"><i class="fa fa-envelope fa-fw"></i></a>
+                                                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 text-center-xxs staff">
+                                                        <div class="media">
+                                                            <div class="margin-vert-1x">
+                                                                <div class="margin-bottom-1x visible-xxs">
+                                                                    <img class="img-circle" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9682/356416.jpg" height="70" width="70">
+                                                                </div>
+                                                                <div class="media-left pad-right-1x hidden-xxs">
+                                                                    <img class="img-circle" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9682/356416.jpg" height="70" width="70">
+                                                                </div>
+                                                                <div class="media-body">
+                                                                    <ul class="list-unstyled">
+                                                                        <li class="staff-name h4"><attr title="Jax Rothbard Derwood Maryland">Joegona Makeacup</attr></li>
+                                                                        <li class="staff-title"><em>VP of Coffee Station</em></li>
+                                                                    </ul>
+                                                                    <ul class="list-unstyled hidden-xs">
+                                                                        <li class="staff-email"><a href="Joe@RothbardMotors.com ">Joe@RothbardMotors.com</a></li>
+                                                                        <li class="staff-tel"><a href="584-681-5189">584-681-5189</a></li>
+                                                                    </ul>
+                                                                    <div class="visible-xs">
+                                                                        <a class="btn btn-default" data-toggle="modal" href="#myModal4"><i class="fa fa-info fa-fw"></i></a>
+                                                                        <a class="btn btn-default" href="Jax@RothbardMotors.com"><i class="fa fa-phone fa-fw"></i></a>
+                                                                        <a class="btn btn-default" href="584-681-5189"><i class="fa fa-envelope fa-fw"></i></a>
+                                                                    </div>
+                                                                    <div class="hidden-xs">
+                                                                        <a class="btn btn-default" data-toggle="modal" href="#myModal4">Read my Bio</a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="hidden-xs">
-                                                                <a class="btn btn-default" data-toggle="modal" href="#myModal4">Read my Bio</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 text-center-xxs staff">
+                                                        <div class="media">
+                                                            <div class="margin-vert-1x">
+                                                                <div class="margin-bottom-1x visible-xxs">
+                                                                    <img class="img-circle" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jerryStaff.jpg" height="70" width="70">
+                                                                </div>
+                                                                <div class="media-left pad-right-1x hidden-xxs">
+                                                                    <img class="img-circle" alt="Jax Rothbard - President" title="Jax Rothbard - President" src="http://cdn.dlron.us/assets/misc/9731/staff/jerryStaff.jpg" height="70" width="70">
+                                                                </div>
+                                                                <div class="media-body">
+                                                                    <ul class="list-unstyled">
+                                                                        <li class="staff-name h4"><attr title="Jax Rothbard Derwood Maryland">Nopdef Notatall</attr></li>
+                                                                        <li class="staff-title"><em>Executive Nothingtodo</em></li>
+                                                                    </ul>
+                                                                    <ul class="list-unstyled hidden-xs">
+                                                                        <li class="staff-email"><a href="Joe@RothbardMotors.com ">Nopdef@RothbardMotors.com</a></li>
+                                                                        <li class="staff-tel"><a href="584-681-5189">584-681-5189</a></li>
+                                                                    </ul>
+                                                                    <div class="visible-xs">
+                                                                        <a class="btn btn-default" data-toggle="modal" href="#myModal4"><i class="fa fa-info fa-fw"></i></a>
+                                                                        <a class="btn btn-default" href="Jax@RothbardMotors.com"><i class="fa fa-phone fa-fw"></i></a>
+                                                                        <a class="btn btn-default" href="584-681-5189"><i class="fa fa-envelope fa-fw"></i></a>
+                                                                    </div>
+                                                                    <div class="hidden-xs">
+                                                                        <a class="btn btn-default" data-toggle="modal" href="#myModal4">Read my Bio</a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
