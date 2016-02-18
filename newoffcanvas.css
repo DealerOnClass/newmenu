@@ -1,11 +1,70 @@
 /*
  *  Isolate sticky nav to mobile.
  */
-@media (max-width: 767px) {
+@media (max-width: 991px) {
+    /*
+     *  Backdrop
+     */
+    #navbar-backdrop {
+        background-color: rgba(0,0,0,0.75);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2500;
+    }
+    #navbar-backdrop.fade {
+        -webkit-transition: opacity .25s ease-in-out;
+                transition: opacity .25s ease-in-out;
+    }
+    /*
+     *  Body
+     */
+    .sidebar-is-open {
+        overflow: hidden;
+    }
+    .navbar {
+        z-index: 3000;
+    }
+    /*
+     *  Sidebar
+     */
+    .navbar-header,
+    .navbar-toggle {
+        float: right;
+        display: block;
+    }
+    .navbar-collapse.collapse {
+        margin: 0;
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100% !important;
+        max-height: 100% !important;
+        background-color: white;
+        -webkit-transition: transform .25s ease-in-out;
+                transition: transform .25s ease-in-out;
+        -webkit-transform: translateX(300px);
+                transform: translateX(300px);
+    }
+    .sidebar-is-open .navbar-collapse {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    .navbar-collapse .navbar-nav,
+    .navbar-collapse .navbar-nav > li {
+        float: none;
+    }
+    /*
+     *  If sticky-state is true position fixed.
+     */
     [sticky-state="true"] {
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 9999;
+        z-index: 3000;
     }
 }

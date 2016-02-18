@@ -27,22 +27,20 @@ function OpenSidebar(el) {
     var nav      = document.querySelector(el);
     var backdrop = document.querySelector("#navbar-backdrop");
     var body     = document.querySelector('body');
-    body.classList.add("sidebar-is-open");
-    nav.classList.add("in");
-    backdrop.classList.add("in");
-    backdrop.classList.remove("invisible");
+    body.className += " sidebar-is-open";
+    nav.className += " in";
+    backdrop.className += " in";
+    backdrop.className = backdrop.className.replace(" invisible","");
 };
 
 function CloseSidebar(el) {
     var nav      = document.querySelector(el);
     var backdrop = document.querySelector("#navbar-backdrop");
     var body     = document.querySelector('body');
-    body.classList.remove("sidebar-is-open");
-    nav.classList.remove("in");
-    backdrop.classList.remove("in");
-    setTimeout( function(){
-        backdrop.classList.add("invisible");
-    }, 250 );
+    body.className = body.className.replace(" sidebar-is-open","");
+    nav.className = nav.className.replace(" in","");
+    backdrop.className += " invisible";
+    backdrop.className = backdrop.className.replace(" in","");
 };
 //
 //  TOGGLE SIDEBAR          -   END
