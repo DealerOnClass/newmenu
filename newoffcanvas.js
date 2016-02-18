@@ -7,9 +7,27 @@ PrepareSticky("#offcanvas-nav");
 window.onscroll = function() {
     var nav = document.querySelector("#offcanvas-nav");
     var navOffset = nav.getAttribute("sticky-offset");
-    if ( this.scrollY > navOffset ) {
-        EnableSticky("#offcanvas-nav");
+    if ( this.innerWidth <= 767 ) {
+        if ( this.scrollY > navOffset ) {
+            EnableSticky("#offcanvas-nav");
+        } else if ( this.scrollY == 0 ) {
+            DisableSticky("#offcanvas-nav");
+        } else {
+            DisableSticky("#offcanvas-nav");
+        }
+    }
+};
+
+//
+//  Toggle on screen resize.
+window.onresize = function() {
+    PrepareSticky("#offcanvas-nav");
+    if ( this.innerWidth >= 768 ) {
+        DisableSticky("#offcanvas-nav");
     } else {
+        EnableSticky("#offcanvas-nav");
+    }
+    if ( this.scrollY == 0 ) {
         DisableSticky("#offcanvas-nav");
     }
 };
@@ -17,9 +35,11 @@ window.onscroll = function() {
 //
 //  Prepare sticky element
 function PrepareSticky(el) {
-    var test = document.querySelector(el);
-    var offset = DistanceFromTop(el);
-    test.setAttribute("sticky-offset", offset);
+    var el = document.querySelector(el);
+    //  var offset = DistanceFromTop(el);
+    //  test.setAttribute("sticky-offset", offset);
+    var prev = el.previousElementSibling;
+    el.setAttribute("sticky-offset", prev.offsetHeight);
 };
 
 //
@@ -47,22 +67,3 @@ function DistanceFromTop(el) {
     var position = el.offsetTop;
     return position;
 };
-
-//
-//  Checks element type and returns appropriate selector.
-//
-//  Note: for now, only id works... : )
-//  function GetElementByType(el) {
-//      var el = document.querySelector(el);
-//      //  var firstChar = el.substring(0,1);
-//      //  if ( firstChar == "#" ) {
-//      //      var el = el.substring(1);
-//      //      var el = document.getElementById(el);
-//      //  } else if ( firstChar == "." ) {
-//      //      var el = el.substring(1);
-//      //      var el = document.getElementsByClassName(el);
-//      //  } else if ( firstChar != "#" || "." ) {
-//      //      var el = el;
-//      //  }
-//      return el;
-//  };

@@ -1,5 +1,11 @@
-[sticky-state="true"] {
-    position: fixed;
-    top: 0;
-    width: 100%;
+/*
+ *  Isolate sticky nav to mobile.
+ */
+@media (max-width: 767px) {
+    [sticky-state="true"] {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 9999;
+    }
 }
