@@ -1,7 +1,3 @@
-/*#oncanvas-nav {*/
-    /*-webkit-transform: translate3d(0,0,0);*/
-            /*transform: translate3d(0,0,0);*/
-/*}*/
 /*
  *  Isolate sticky nav to mobile.
  */
@@ -74,5 +70,11 @@
         left: 0;
         width: 100%;
         z-index: 3000;
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+    .sidebar-is-open [sticky-state="true"] {
+        -webkit-transform: initial;
+        transform: initial;
     }
 }
