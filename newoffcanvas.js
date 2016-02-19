@@ -1,13 +1,28 @@
 ////////////////////////////////////////////
 //
+//  PREPARE CANVAS          -   START
+//
+//  window.onresize = function() {
+//      console.log('resizing');
+//      //  var body    = document.querySelector('#content');
+//      //  var nav     = document.querySelector('#offcanvas-nav').offsetHeight;
+//      //  var header  = document.querySelector('#headerWrapper').offsetHeight;
+//      //  body.style.height = nav + header + "px";
+//  };
+//
+//  PREPARE CANVAS          -   END
+//
+////////////////////////////////////////////
+////////////////////////////////////////////
+//
 //  TOGGLE SIDEBAR          -   START
 //
 InitializeBackdrop('#content');
 
-var nav      = document.querySelector('#open-right');
+var navToggl = document.querySelector('#open-right');
 var backdrop = document.querySelector('#navbar-backdrop');
 
-nav.onclick = function() {
+navToggl.onclick = function() {
     OpenSidebar('.navbar-collapse');
 };
 
@@ -84,6 +99,13 @@ window.onscroll = function() {
 //
 //  Toggle sticky element based on resize.
 window.onresize = function() {
+    //
+    //  Test
+    console.log('resizing');
+    var window  = this.innerHeight;
+    var header  = document.querySelector('#headerWrapper').offsetHeight;
+    var body    = document.querySelector('#content');
+    body.style.height = window - header + "px";
     //
     //  Update sticky-offset value on resize.
     InitializeSticky("#offcanvas-nav");
