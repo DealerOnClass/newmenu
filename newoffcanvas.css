@@ -2,12 +2,8 @@
  *  I hate you Safari.
  */
 #offcanvas-nav {
-    -webkit-transform: translateZ(1px);
-            transform: translateZ(1px);
-}
-#content {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
 }
 /*
  *  Isolate sticky nav to mobile.
