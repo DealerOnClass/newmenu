@@ -5,7 +5,7 @@
 //  window.onresize = function() {
 //      console.log('resizing');
 //      //  var body    = document.querySelector('#content');
-//      //  var nav     = document.querySelector('#offcanvas-nav').offsetHeight;
+//      //  var nav     = document.querySelector('.navbar-header').offsetHeight;
 //      //  var header  = document.querySelector('#headerWrapper').offsetHeight;
 //      //  body.style.height = nav + header + "px";
 //  };
@@ -69,12 +69,12 @@ function CloseSidebar(el) {
 //
 //
 //  Initialize sticky element on Load.
-InitializeSticky("#offcanvas-nav");
+InitializeSticky(".navbar-header");
 
 //
 //  Toggle sticky element based on scroll.
 window.onscroll = function() {
-    var nav       = document.querySelector("#offcanvas-nav");
+    var nav       = document.querySelector(".navbar-header");
     var threshold = nav.getAttribute("sticky-offset");
     //
     //  If screen is less than or equal to 991:
@@ -86,12 +86,12 @@ window.onscroll = function() {
     //  Additionally, disable sticky if not scrolled at all.
     if ( this.innerWidth <= 991 ) {
         if ( this.scrollY > threshold ) {
-            EnableSticky("#offcanvas-nav");
+            EnableSticky(".navbar-header");
         } else {
-            DisableSticky("#offcanvas-nav");
+            DisableSticky(".navbar-header");
         }
         if ( this.scrollY == 0 ) {
-            DisableSticky("#offcanvas-nav");
+            DisableSticky(".navbar-header");
         }
     }
 };
@@ -108,7 +108,7 @@ window.onresize = function() {
         //  body.style.height = window - header + "px";
     //
     //  Update sticky-offset value on resize.
-    InitializeSticky("#offcanvas-nav");
+    InitializeSticky(".navbar-header");
     //
     //  If screen is greater than or equal to 992:
     //      disable sticky.
@@ -117,12 +117,12 @@ window.onresize = function() {
     //
     //  Additionally, disable sticky if not scrolled at all.
     if ( this.innerWidth >= 992 ) {
-        DisableSticky("#offcanvas-nav");
+        DisableSticky(".navbar-header");
     } else {
-        EnableSticky("#offcanvas-nav");
+        EnableSticky(".navbar-header");
     }
     if ( this.scrollY == 0 ) {
-        DisableSticky("#offcanvas-nav");
+        DisableSticky(".navbar-header");
     }
 };
 
@@ -133,7 +133,7 @@ window.onresize = function() {
 //
 function InitializeSticky(el) {
     var el   = document.querySelector(el);
-    var prev = el.previousElementSibling.offsetHeight;    /* 1 */
+    var prev = document.querySelector('#oncanvas-header').offsetHeight;    /* 1 */
     el.setAttribute("sticky-offset", prev);               /* 2 */
 };
 
@@ -147,7 +147,7 @@ function InitializeSticky(el) {
 //
 function EnableSticky(el) {
     var el                  = document.querySelector(el);
-    var prev                = el.previousElementSibling;
+    var prev                = document.querySelector('#oncanvas-header');
     prev.style.marginBottom = el.offsetHeight + "px";   /* 1 */
     el.setAttribute("sticky-state", "true");            /* 2 */
 };
@@ -160,7 +160,7 @@ function EnableSticky(el) {
 //
 function DisableSticky(el) {
     var el                  = document.querySelector(el);
-    var prev                = el.previousElementSibling;
+    var prev                = document.querySelector('#oncanvas-header');
     prev.style.marginBottom = 0;                        /* 1 */
     el.setAttribute("sticky-state", "false");           /* 2 */
     //

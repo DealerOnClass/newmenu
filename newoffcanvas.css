@@ -1,14 +1,7 @@
-/*
- *  I hate you Safari.
- */
-#offcanvas-nav {
-    -webkit-transform: translate3d(0,0,0);
-            transform: translate3d(0,0,0);
-}
-.sidebar-is-open #offcanvas-nav {
-    -webkit-transform: initial;
-            transform: initial;
-}
+/*#oncanvas-nav {*/
+    /*-webkit-transform: translate3d(0,0,0);*/
+            /*transform: translate3d(0,0,0);*/
+/*}*/
 /*
  *  Isolate sticky nav to mobile.
  */
@@ -31,11 +24,19 @@
     }
     .navbar {
         z-index: 3000;
+        min-height: 0 !important;
+    }
+    #nav-container {
+        max-width: 100%;
     }
     /*
      *  Sidebar
      */
-    .navbar-header,
+    .navbar-header {
+        float: none;
+        display: block;
+        background-color: #eeeeee;
+    }
     .navbar-toggle {
         float: right;
         display: block;
@@ -44,6 +45,7 @@
         margin: 0;
         display: block;
         position: fixed;
+        z-index: 4000;
         top: 0;
         right: 0;
         width: 300px;
@@ -69,6 +71,7 @@
     [sticky-state="true"] {
         position: fixed;
         top: 0;
+        left: 0;
         width: 100%;
         z-index: 3000;
     }
