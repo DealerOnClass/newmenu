@@ -163,6 +163,9 @@ function DisableSticky(el) {
     var prev                = el.previousElementSibling;
     prev.style.marginBottom = 0;                        /* 1 */
     el.setAttribute("sticky-state", "false");           /* 2 */
+    //
+    var body                = document.querySelector('body');
+    body.classList.remove('sticky-is-enabled');
 };
 //
 //
