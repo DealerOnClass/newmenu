@@ -70,12 +70,18 @@
         /*-webkit-backface-visibility: hidden;*/
                 /*backface-visibility: hidden;*/
     /*}*/
-    [sticky-state="true"] {
+    #oncanvas-nav-clone {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 3000;
+        z-index: 4000;
+    }
+    [sticky-state="false"] {
+        display: none;
+    }
+    [sticky-state="true"] {
+        display: initial;
     }
     .sidebar-is-open [sticky-state="true"] {
         -webkit-transform: initial;

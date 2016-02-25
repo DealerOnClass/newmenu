@@ -54,11 +54,12 @@ function CloseSidebar(el) {
 //
 //  Initialize sticky element on Load.
 InitializeSticky();
+var navClone = document.querySelector('#oncanvas-nav-clone');
 
 //
 //  Toggle sticky element based on scroll.
 window.onscroll = function() {
-    var threshold = nav.getAttribute("sticky-offset");
+    var threshold = navClone.getAttribute("sticky-offset");
     //
     //  If screen is less than or equal to 991:
     //      If scroll past threshold:
@@ -116,9 +117,20 @@ window.onresize = function() {
 //  Get the previous element's height /* 1 */ and stores it
 //  in a new attribute on the sticky element. /* 2 */
 //
+function OldInitializeSticky() {
+    var offset = prev.offsetHeight;                     /* 1 */
+    nav.setAttribute("sticky-offset", offset);          /* 2 */
+};
 function InitializeSticky() {
     var offset = prev.offsetHeight;                     /* 1 */
     nav.setAttribute("sticky-offset", offset);          /* 2 */
+    //
+    //  Clone nav element /* 1 */ and prepend
+    //  to body /* 2 */
+    var newNav = nav.cloneNode(true);                   /* 3 */
+    newNav.id = "oncanvas-nav-clone";
+    newNav.setAttribute("sticky-state", "false");       /* 4 */
+    body.insertBefore(newNav, body.childNodes[0]);      /* 5 */
 };
 
 //
@@ -129,9 +141,13 @@ function InitializeSticky() {
 //  page jump. Position fixed enabled by new attribute for sticky
 //  element /* 2 */.
 //
-function EnableSticky() {
+function OldEnableSticky() {
     prev.style.marginBottom = nav.offsetHeight + "px";   /* 1 */
     nav.setAttribute("sticky-state", "true");            /* 2 */
+};
+function EnableSticky() {
+    //  prev.style.marginBottom = nav.offsetHeight + "px";   /* 1 */
+    navClone.setAttribute("sticky-state", "true");            /* 2 */
 };
 
 //
@@ -140,9 +156,15 @@ function EnableSticky() {
 //  sticky-state of sticky element to false /* 2 */. Essentially
 //  undoing what EnableSticky() does.
 //
-function DisableSticky() {
+function OldDisableSticky() {
     prev.style.marginBottom = 0;                        /* 1 */
     nav.setAttribute("sticky-state", "false");           /* 2 */
+    //
+    body.classList.remove('sticky-is-enabled');
+};
+function DisableSticky() {
+    //  prev.style.marginBottom = 0;                        /* 1 */
+    navClone.setAttribute("sticky-state", "false");           /* 2 */
     //
     body.classList.remove('sticky-is-enabled');
 };
