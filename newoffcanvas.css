@@ -70,21 +70,21 @@
         /*-webkit-backface-visibility: hidden;*/
                 /*backface-visibility: hidden;*/
     /*}*/
-    #oncanvas-nav-clone {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 4000;
-    }
-    [sticky-state="false"] {
-        display: none;
-    }
-    [sticky-state="true"] {
-        display: initial;
-    }
-    .sidebar-is-open [sticky-state="true"] {
-        -webkit-transform: initial;
-        transform: initial;
-    }
+}
+#oncanvas-nav-clone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 4000;
+}
+[sticky-state="false"] {
+    display: none;
+}
+[sticky-state="true"] {
+    display: initial;
+}
+.sidebar-is-open [sticky-state="true"] {
+    -webkit-transform: initial;
+    transform: initial;
 }

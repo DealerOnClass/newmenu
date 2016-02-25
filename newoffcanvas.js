@@ -93,7 +93,7 @@ window.onresize = function() {
         //  body.style.height = window - header + "px";
     //
     //  Update sticky-offset value on resize.
-    InitializeSticky();
+    //  InitializeSticky();
     //
     //  If screen is greater than or equal to 992:
     //      disable sticky.
