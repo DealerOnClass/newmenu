@@ -1,24 +1,12 @@
 ////////////////////////////////////////////
 //
-//  PREPARE CANVAS          -   START
-//
-//  window.onresize = function() {
-//      console.log('resizing');
-//      //  var body    = document.querySelector('#content');
-//      //  var nav     = document.querySelector('.navbar-header').offsetHeight;
-//      //  var header  = document.querySelector('#headerWrapper').offsetHeight;
-//      //  body.style.height = nav + header + "px";
-//  };
-//
-//  PREPARE CANVAS          -   END
-//
-////////////////////////////////////////////
-////////////////////////////////////////////
-//
 //  TOGGLE SIDEBAR          -   START
 //
 InitializeBackdrop('#content');
 
+var body     = document.querySelector('body');
+var nav      = document.querySelector('#oncanvas-nav');
+var prev     = document.querySelector('#oncanvas-header');
 var navToggl = document.querySelector('#open-right');
 var backdrop = document.querySelector('#navbar-backdrop');
 
@@ -39,9 +27,7 @@ function InitializeBackdrop(el) {
 };
 
 function OpenSidebar(el) {
-    var nav      = document.querySelector(el);
     var backdrop = document.querySelector("#navbar-backdrop");
-    var body     = document.querySelector('body');
     body.classList.add("sidebar-is-open");
     nav.classList.add("in");
     backdrop.classList.add("in");
@@ -49,9 +35,7 @@ function OpenSidebar(el) {
 };
 
 function CloseSidebar(el) {
-    var nav      = document.querySelector(el);
     var backdrop = document.querySelector("#navbar-backdrop");
-    var body     = document.querySelector('body');
     body.classList.remove("sidebar-is-open");
     nav.classList.remove("in");
     backdrop.classList.remove("in");
@@ -69,12 +53,11 @@ function CloseSidebar(el) {
 //
 //
 //  Initialize sticky element on Load.
-InitializeSticky(".navbar-header");
+InitializeSticky();
 
 //
 //  Toggle sticky element based on scroll.
 window.onscroll = function() {
-    var nav       = document.querySelector(".navbar-header");
     var threshold = nav.getAttribute("sticky-offset");
     //
     //  If screen is less than or equal to 991:
@@ -83,15 +66,16 @@ window.onscroll = function() {
     //      else
     //          disable sticky.
     //
-    //  Additionally, disable sticky if not scrolled at all.
+    //      If not scrolled at all:
+    //          disable sticky.
     if ( this.innerWidth <= 991 ) {
         if ( this.scrollY > threshold ) {
-            EnableSticky(".navbar-header");
+            EnableSticky();
         } else {
-            DisableSticky(".navbar-header");
+            DisableSticky();
         }
         if ( this.scrollY == 0 ) {
-            DisableSticky(".navbar-header");
+            DisableSticky();
         }
     }
 };
@@ -108,21 +92,22 @@ window.onresize = function() {
         //  body.style.height = window - header + "px";
     //
     //  Update sticky-offset value on resize.
-    InitializeSticky(".navbar-header");
+    InitializeSticky();
     //
     //  If screen is greater than or equal to 992:
     //      disable sticky.
     //  else
     //      enable sticky.
     //
-    //  Additionally, disable sticky if not scrolled at all.
+    //  If not scrolled at all:
+    //      disable sticky.
     if ( this.innerWidth >= 992 ) {
-        DisableSticky(".navbar-header");
+        DisableSticky();
     } else {
-        EnableSticky(".navbar-header");
+        EnableSticky();
     }
     if ( this.scrollY == 0 ) {
-        DisableSticky(".navbar-header");
+        DisableSticky();
     }
 };
 
@@ -131,10 +116,9 @@ window.onresize = function() {
 //  Get the previous element's height /* 1 */ and stores it
 //  in a new attribute on the sticky element. /* 2 */
 //
-function InitializeSticky(el) {
-    var el   = document.querySelector(el);
-    var prev = document.querySelector('#oncanvas-header').offsetHeight;    /* 1 */
-    el.setAttribute("sticky-offset", prev);               /* 2 */
+function InitializeSticky() {
+    var offset = prev.offsetHeight;                     /* 1 */
+    nav.setAttribute("sticky-offset", offset);          /* 2 */
 };
 
 //
@@ -145,11 +129,9 @@ function InitializeSticky(el) {
 //  page jump. Position fixed enabled by new attribute for sticky
 //  element /* 2 */.
 //
-function EnableSticky(el) {
-    var el                  = document.querySelector(el);
-    var prev                = document.querySelector('#oncanvas-header');
-    prev.style.marginBottom = el.offsetHeight + "px";   /* 1 */
-    el.setAttribute("sticky-state", "true");            /* 2 */
+function EnableSticky() {
+    prev.style.marginBottom = nav.offsetHeight + "px";   /* 1 */
+    nav.setAttribute("sticky-state", "true");            /* 2 */
 };
 
 //
@@ -158,13 +140,10 @@ function EnableSticky(el) {
 //  sticky-state of sticky element to false /* 2 */. Essentially
 //  undoing what EnableSticky() does.
 //
-function DisableSticky(el) {
-    var el                  = document.querySelector(el);
-    var prev                = document.querySelector('#oncanvas-header');
+function DisableSticky() {
     prev.style.marginBottom = 0;                        /* 1 */
-    el.setAttribute("sticky-state", "false");           /* 2 */
+    nav.setAttribute("sticky-state", "false");           /* 2 */
     //
-    var body                = document.querySelector('body');
     body.classList.remove('sticky-is-enabled');
 };
 //

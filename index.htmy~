@@ -22,18 +22,6 @@
         <link rel=stylesheet href="http://cdn.dlron.us/assets/coupon/mobileLeadDriver/mobile-lead-driver.css">
         <link rel="stylesheet" href="cms.css">
         <link rel="stylesheet" href="newoffcanvas.css">
-        <style>
-            .test {
-                background-color: crimson;
-                color: white;
-                padding: .5em;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 9000;
-            }
-        </style>
     </head>
 
     <body class="homepage">
@@ -41,9 +29,6 @@
 
         <div id="headerWrapper" class="headerWrapper full fixedHeaderArea">
 
-            <div class="test">
-                Hello, this is a test.
-            </div>
             <header id="oncanvas-header">
                 <div id="dealerInfo" class="full">
                     <!-- Hidden on mobile -->
