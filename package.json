@@ -1,0 +1,23 @@
+{
+  "name": "newmenu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "newoffcanvas.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DealerOnClass/newmenu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DealerOnClass/newmenu/issues"
+  },
+  "homepage": "https://github.com/DealerOnClass/newmenu#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1"
+  }
+}

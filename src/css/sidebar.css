@@ -1,7 +1,13 @@
 /*
- *  Isolate sticky nav to mobile.
+ *  Offcanvas Sidebar
  */
 @media (max-width: 991px) {
+    /*
+     *  Body
+     */
+    .sidebar-is-open {
+        overflow-y: hidden;
+    }
     /*
      *  Backdrop
      */
@@ -18,12 +24,25 @@
         -webkit-transition: opacity .25s ease-in-out;
                 transition: opacity .25s ease-in-out;
     }
+    /*
+     *  Navbar
+     */
     .navbar {
         z-index: 3000;
         min-height: 0 !important;
     }
     #nav-container {
         max-width: 100%;
+    }
+    /*
+     *  Navbar-Nav
+     */
+    .navbar-default .navbar-nav {
+        margin: 0 -15px;
+    }
+    .navbar-default .navbar-nav li a {
+        padding-left: 15px;
+        padding-right: 15px;
     }
     /*
      *  Sidebar
@@ -38,6 +57,7 @@
         display: block;
     }
     .navbar-collapse.collapse {
+        overflow-y: auto!important;
         margin: 0;
         display: block;
         position: fixed;
@@ -62,29 +82,15 @@
         float: none;
     }
     /*
-     *  If sticky-state is true position fixed.
+     *  Sidebar collapsing li's
      */
-    /*#oncanvas-nav {*/
-        /*-webkit-transform: translateX(0);*/
-                /*transform: translateX(0);*/
-        /*-webkit-backface-visibility: hidden;*/
-                /*backface-visibility: hidden;*/
-    /*}*/
-}
-#oncanvas-nav-clone {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 4000;
-}
-[sticky-state="false"] {
-    display: none;
-}
-[sticky-state="true"] {
-    display: initial;
-}
-.sidebar-is-open [sticky-state="true"] {
-    -webkit-transform: initial;
-    transform: initial;
+    .navbar-collapse .navbar-nav .dropdown-menu {
+        position: relative;
+        float: none;
+        margin: 0;
+        box-shadow: none;
+    }
+    .navbar-collapse .navbar-nav .dropdown-menu.collapsing {
+        display: block;
+    }
 }

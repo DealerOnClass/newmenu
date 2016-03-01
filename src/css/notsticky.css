@@ -1,0 +1,44 @@
+/*
+ *  Header reset
+ */
+@media (min-width: 992px) {
+    #oncanvas-header {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 991px) {
+    /*
+     *  Header reorder on tablet
+     */
+    #headerWrapper {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    #headerWrapper > header {
+        order: 2;
+    }
+
+    #headerWrapper > nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1045;
+        order: 1;
+    }
+    /*
+     *  Navbar backdrop
+     */
+    #navbar-backdrop {
+        z-index: 1040;
+    }
+}
+
+@media (max-width: 767px) {
+    #headerWrapper .static-to-nav {
+        position: fixed;
+        z-index: 1046;
+    }
+}

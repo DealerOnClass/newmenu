@@ -1,50 +1,19 @@
 ////////////////////////////////////////////
 //
-//  TOGGLE SIDEBAR          -   START
+//  NOTES                   -   START
 //
-InitializeBackdrop('#content');
-
-var body     = document.querySelector('body');
-var nav      = document.querySelector('#oncanvas-nav');
-var prev     = document.querySelector('#oncanvas-header');
-var navToggl = document.querySelector('#open-right');
-var backdrop = document.querySelector('#navbar-backdrop');
-
-navToggl.onclick = function() {
-    OpenSidebar('.navbar-collapse');
-};
-
-backdrop.onclick = function() {
-    CloseSidebar('.navbar-collapse');
-};
-
-function InitializeBackdrop(el) {
-    var container = document.querySelector(el);
-    var backdrop  = document.createElement("div");
-    container.insertBefore(backdrop, container.childNodes[0]);
-    backdrop.id = "navbar-backdrop";
-    backdrop.className = "fade invisible";
-};
-
-function OpenSidebar(el) {
-    var backdrop = document.querySelector("#navbar-backdrop");
-    body.classList.add("sidebar-is-open");
-    nav.classList.add("in");
-    backdrop.classList.add("in");
-    backdrop.classList.remove("invisible");
-};
-
-function CloseSidebar(el) {
-    var backdrop = document.querySelector("#navbar-backdrop");
-    body.classList.remove("sidebar-is-open");
-    nav.classList.remove("in");
-    backdrop.classList.remove("in");
-    setTimeout( function(){
-        backdrop.classList.add("invisible");
-    }, 250 );
-};
+//  Works on desktop, perfectly. Problem on mobile is:
+//  Mobile scroll events don't work like desktop scroll events.
+//  The desktop scroll fires, well every pixel essentially. Recently
+//  modern browsers and devices have adopted the same, namely Android, Chrome, Firefox, Dolphin.
+//  However, Blackberry, Opera, Symbian and iOS browsers have not. They do not
+//  detect on scroll per pixel, they detect on scrollstart and scrollstop,
+//  inbetween, nothing. Momentum scrolling does not detect scrolling.
+//  Therefore another solution needs to be considered.
+//  https://www.tjvantoll.com/2012/08/19/onscroll-event-issues-on-mobile-browsers/
+//  http://andyshora.com/mobile-scroll-event-problems.html
 //
-//  TOGGLE SIDEBAR          -   END
+//  NOTES                   -   END
 //
 ////////////////////////////////////////////
 ////////////////////////////////////////////
@@ -54,12 +23,16 @@ function CloseSidebar(el) {
 //
 //  Initialize sticky element on Load.
 InitializeSticky();
-var navClone = document.querySelector('#oncanvas-nav-clone');
+//  var navClone = document.querySelector('#oncanvas-nav-clone');
+var nav = document.querySelector('#oncanvas-nav');
 
 //
 //  Toggle sticky element based on scroll.
+
+//  window.addEventListener( "touchmove", function() {
 window.onscroll = function() {
-    var threshold = navClone.getAttribute("sticky-offset");
+    //  var threshold = navClone.getAttribute("sticky-offset");
+    var threshold = nav.getAttribute("sticky-offset");
     //
     //  If screen is less than or equal to 991:
     //      If scroll past threshold:
@@ -80,6 +53,7 @@ window.onscroll = function() {
         }
     }
 };
+//  }, false);
 
 //
 //  Toggle sticky element based on resize.
@@ -93,7 +67,7 @@ window.onresize = function() {
         //  body.style.height = window - header + "px";
     //
     //  Update sticky-offset value on resize.
-    //  InitializeSticky();
+    InitializeSticky();
     //
     //  If screen is greater than or equal to 992:
     //      disable sticky.
@@ -117,11 +91,11 @@ window.onresize = function() {
 //  Get the previous element's height /* 1 */ and stores it
 //  in a new attribute on the sticky element. /* 2 */
 //
-function OldInitializeSticky() {
+function InitializeSticky() {
     var offset = prev.offsetHeight;                     /* 1 */
     nav.setAttribute("sticky-offset", offset);          /* 2 */
 };
-function InitializeSticky() {
+function OldInitializeSticky() {
     var offset = prev.offsetHeight;                     /* 1 */
     nav.setAttribute("sticky-offset", offset);          /* 2 */
     //
@@ -141,11 +115,11 @@ function InitializeSticky() {
 //  page jump. Position fixed enabled by new attribute for sticky
 //  element /* 2 */.
 //
-function OldEnableSticky() {
+function EnableSticky() {
     prev.style.marginBottom = nav.offsetHeight + "px";   /* 1 */
     nav.setAttribute("sticky-state", "true");            /* 2 */
 };
-function EnableSticky() {
+function OldEnableSticky() {
     //  prev.style.marginBottom = nav.offsetHeight + "px";   /* 1 */
     navClone.setAttribute("sticky-state", "true");            /* 2 */
 };
@@ -156,13 +130,13 @@ function EnableSticky() {
 //  sticky-state of sticky element to false /* 2 */. Essentially
 //  undoing what EnableSticky() does.
 //
-function OldDisableSticky() {
+function DisableSticky() {
     prev.style.marginBottom = 0;                        /* 1 */
     nav.setAttribute("sticky-state", "false");           /* 2 */
     //
     body.classList.remove('sticky-is-enabled');
 };
-function DisableSticky() {
+function OldDisableSticky() {
     //  prev.style.marginBottom = 0;                        /* 1 */
     navClone.setAttribute("sticky-state", "false");           /* 2 */
     //
