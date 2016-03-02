@@ -31,16 +31,16 @@ function forEach(array, callback, scope) {
 ////////////////////////////////////////////
 ////////////////////////////////////////////
 //
-//  CONFIG                  -   END
+//  CONFIG                  -   START
 //
 var body          = document.querySelector('body');
-var wrapper       = document.querySelector('#content');
+var header        = document.querySelector('.headerWrapper > header');
+var headerWrapper = document.querySelector('.headerWrapper');
 var nav           = document.querySelector('.headerWrapper > nav');
 var navHeader     = document.querySelector('.headerWrapper > nav .navbar-header');
 var navItems      = document.querySelectorAll('.headerWrapper > nav .dropdown');
-var headerWrapper = document.querySelector('.headerWrapper');
-var header        = document.querySelector('.headerWrapper > header');
-var navToggle     = document.querySelector('#open-right');
+var navToggle     = document.querySelector('.headerWrapper > nav #open-right');
+var wrapper       = document.querySelector('#content');
 InitializeBackdrop();
 var backdrop      = document.querySelector('#navbar-backdrop');
 //
