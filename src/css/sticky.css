@@ -1,47 +1,26 @@
-/*
- *  old test -- start
- */
-/*#oncanvas-nav-clone {*/
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*width: 100%;*/
-    /*z-index: 4000;*/
-/*}*/
-/*[sticky-state="false"] {*/
-    /*display: none;*/
-/*}*/
-/*[sticky-state="true"] {*/
-    /*display: initial;*/
-/*}*/
-/*
- *  new test -- start
- */
-#oncanvas-nav {
-    z-index: 4000;
-}
-[sticky-state="true"] {
+[sticky-state="true"] .navbar-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    display: initial;
+    z-index: 1025;
 }
-.sidebar-is-open [sticky-state="true"] {
+
+.sidebar-is-open [sticky-state="true"] .navbar-header {
     -webkit-transform: initial;
     transform: initial;
 }
-/*#headerWrapper > nav {*/
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*width: 100%;*/
-    /*display: flex;*/
-    /*flex-flow: column nowrap;*/
-/*}*/
-/*#headerWrapper > header {*/
-    /*order: 2;*/
-/*}*/
-/*#headerWrapper > nav {*/
-    /*order: 1;*/
-/*}*/
+
+.sticky-is-enabled .static-to-nav {
+    position: fixed;
+    z-index: 1030;
+}
+
+@media (min-width: 768px) and (max-width: 991px ) {
+    .headerWrapper .mobile.container {
+        display: block !important;
+    }
+    .headerWrapper .mobile.container .brand {
+        display: none !important;
+    }
+}

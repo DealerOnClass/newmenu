@@ -1,18 +1,19 @@
 /*
- *  Offcanvas Sidebar
+ *  Offcanvas Sidebar   START
  */
 @media (max-width: 991px) {
     /*
-     *  Body
+     *  Structure & Reset
+     *
+     *  body - disable scroll when sidebar is open.
      */
     .sidebar-is-open {
         overflow-y: hidden;
     }
     /*
-     *  Backdrop
+     *  backdrop - general structure
      */
     #navbar-backdrop {
-        background-color: rgba(0,0,0,0.75);
         position: fixed;
         top: 0;
         left: 0;
@@ -25,7 +26,7 @@
                 transition: opacity .25s ease-in-out;
     }
     /*
-     *  Navbar
+     *  navbar - general reset
      */
     .navbar {
         z-index: auto !important;
@@ -35,7 +36,7 @@
         max-width: 100%;
     }
     /*
-     *  Navbar-Nav
+     *  navbar-nav - general reset
      */
     .navbar-default .navbar-nav {
         margin: 0 -15px;
@@ -45,17 +46,22 @@
         padding-right: 15px;
     }
     /*
-     *  Sidebar
+     *  navbar-header - general reset
      */
     .navbar-header {
         float: none;
         display: block;
-        background-color: #eeeeee;
     }
+    /*
+     *  navbar-toggle - general reset
+     */
     .navbar-toggle {
         float: right;
         display: block;
     }
+    /*
+     *  navbar-collapse - general reset
+     */
     .navbar-collapse.collapse {
         overflow-y: auto!important;
         margin: 0;
@@ -67,7 +73,6 @@
         width: 300px;
         height: 100% !important;
         max-height: 100% !important;
-        background-color: white;
         -webkit-transition: transform .25s ease-in-out;
                 transition: transform .25s ease-in-out;
         -webkit-transform: translateX(300px);
@@ -82,7 +87,7 @@
         float: none;
     }
     /*
-     *  Sidebar collapsing li's
+     *  treat ".dropdown-menu" as collapsible items.
      */
     .navbar-collapse .navbar-nav .dropdown-menu {
         position: relative;
@@ -93,4 +98,66 @@
     .navbar-collapse .navbar-nav .dropdown-menu.collapsing {
         display: block;
     }
+    /*
+     *  Themeing
+     *
+     *
+     *  navbar-backdrop
+     */
+    #navbar-backdrop {
+        background-color: rgba(0,0,0,0.75);
+    }
+    /*
+     *  navbar-header
+     */
+    .navbar-header {
+        background-color: #eee;
+    }
+    /*
+     *  navbar-collapse ( essentially the pop-out sidebar/nav )
+     */
+    .navbar-collapse {
+        background-color: white;
+    }
 }
+/*
+ *  Offcanvas Sidebar   END
+ *
+ *
+ *  *   *   *   *   *   *   *   *
+ *  *   *   *   *   *   *   *   *
+ *  *   *   *   *   *   *   *   *
+ *
+ *
+ *  Sticky Header       START
+ *
+ *  Fix the ".navbar-header" to top when sticky state is true.
+ */
+.sticky-is-enabled .navbar-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1025;
+}
+/*
+ *  Fix the header buttons to top when sticky state is true.
+ */
+.sticky-is-enabled .static-to-nav {
+    position: fixed;
+    z-index: 1030;
+}
+/*
+ *  Essentially undoing ".visible-xs".
+ */
+@media (min-width: 768px) and (max-width: 991px ) {
+    .headerWrapper .mobile.container {
+        display: block !important;
+    }
+    .headerWrapper .mobile.container .brand {
+        display: none !important;
+    }
+}
+/*
+ *  Sticky Header       END
+ */

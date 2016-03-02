@@ -1,34 +1,15 @@
 ////////////////////////////////////////////
 //
-//  NOTES                   -   START
-//
-//  Works on desktop, perfectly. Problem on mobile is:
-//  Mobile scroll events don't work like desktop scroll events.
-//  The desktop scroll fires, well every pixel essentially. Recently
-//  modern browsers and devices have adopted the same, namely Android, Chrome, Firefox, Dolphin.
-//  However, Blackberry, Opera, Symbian and iOS browsers have not. They do not
-//  detect on scroll per pixel, they detect on scrollstart and scrollstop,
-//  inbetween, nothing. Momentum scrolling does not detect scrolling.
-//  Therefore another solution needs to be considered.
-//  https://www.tjvantoll.com/2012/08/19/onscroll-event-issues-on-mobile-browsers/
-//  http://andyshora.com/mobile-scroll-event-problems.html
-//
-//  NOTES                   -   END
-//
-////////////////////////////////////////////
-////////////////////////////////////////////
-//
 //  TOGGLE STICKY ELEMENT   -   START
 //
 //
 //  Initialize sticky element on Load.
 InitializeSticky();
-var nav = document.querySelector('#oncanvas-nav');
-
 //
 //  Toggle sticky element based on scroll.
-
 window.onscroll = function() {
+    //
+    //  Get offset distance before check
     var threshold = nav.getAttribute("sticky-offset");
     //
     //  If screen is less than or equal to 991:
@@ -50,13 +31,14 @@ window.onscroll = function() {
         }
     }
 };
-
 //
-//  Toggle sticky element based on resize.
+//  Toggle sticky element on resize.
 window.onresize = function() {
     //
-    //  Update sticky-offset value on resize.
+    //  Toggle nav links on resize.
     ToggleNavCollapse();
+    //
+    //  Update sticky-offset value on resize.
     InitializeSticky();
     //
     //  If screen is greater than or equal to 992:
@@ -75,7 +57,6 @@ window.onresize = function() {
         DisableSticky();
     }
 };
-
 //
 //  Prepare sticky element
 //  Get the previous element's height /* 1 */ and stores it
@@ -94,8 +75,10 @@ function InitializeSticky() {
 //  element /* 2 */.
 //
 function EnableSticky() {
-    header.style.marginBottom = nav.offsetHeight + "px";   /* 1 */
+    //  header.style.marginBottom = nav.offsetHeight + "px";   /* 1 */
+    wrapper.style.marginTop = navHead.offsetHeight + "px";   /* 1 */
     nav.setAttribute("sticky-state", "true");            /* 2 */
+    body.classList.add("sticky-is-enabled");
 };
 //
 //  Disable sticky element
@@ -104,7 +87,8 @@ function EnableSticky() {
 //  undoing what EnableSticky() does.
 //
 function DisableSticky() {
-    header.style.marginBottom = 0;                        /* 1 */
+    //  header.style.marginBottom = 0;                        /* 1 */
+    wrapper.style.marginTop = 0;                        /* 1 */
     nav.setAttribute("sticky-state", "false");           /* 2 */
     //
     body.classList.remove('sticky-is-enabled');
