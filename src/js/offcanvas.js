@@ -227,13 +227,13 @@ function InitializeSticky() {
 //  "clone" of the sticky element to compensate for position:fixed
 //  page jump. Position fixed enabled by new attribute body/* 2 */.
 function EnableSticky() {
-    wrapper.style.marginTop = navHead.offsetHeight + "px";      /* 1 */
+    header.style.marginBottom = navHead.offsetHeight + "px";    /* 1 */
     body.classList.add("sticky-is-enabled");                    /* 2 */
 };
 //
 //  Reverse of the above.
 function DisableSticky() {
-    wrapper.style.marginTop = 0;                                /* 1 */
+    header.style.marginBottom = 0;                              /* 1 */
     body.classList.remove('sticky-is-enabled');                 /* 2 */
 };
 //
