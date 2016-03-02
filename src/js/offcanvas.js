@@ -33,15 +33,16 @@ function forEach(array, callback, scope) {
 //
 //  CONFIG                  -   END
 //
-var body     = document.querySelector('body');
-var wrapper  = document.querySelector('#content');
-var nav      = document.querySelector('.headerWrapper > nav');
-var navHead  = document.querySelector('.headerWrapper > nav .navbar-header');
-var navItems = document.querySelectorAll('.headerWrapper > nav .dropdown');
-var header   = document.querySelector('.headerWrapper > header');
-var navToggl = document.querySelector('#open-right');
+var body          = document.querySelector('body');
+var wrapper       = document.querySelector('#content');
+var nav           = document.querySelector('.headerWrapper > nav');
+var navHeader     = document.querySelector('.headerWrapper > nav .navbar-header');
+var navItems      = document.querySelectorAll('.headerWrapper > nav .dropdown');
+var headerWrapper = document.querySelector('.headerWrapper');
+var header        = document.querySelector('.headerWrapper > header');
+var navToggle     = document.querySelector('#open-right');
 InitializeBackdrop();
-var backdrop = document.querySelector('#navbar-backdrop');
+var backdrop      = document.querySelector('#navbar-backdrop');
 //
 //  CONFIG                  -   END
 //
@@ -59,7 +60,7 @@ function InitializeBackdrop() {
     newBackdrop.id = "navbar-backdrop";
     newBackdrop.className = "fade invisible";
     newBackdrop.setAttribute("onclick", "CloseSidebar()");
-    navToggl.setAttribute("onclick", "OpenSidebar()");
+    navToggle.setAttribute("onclick", "OpenSidebar()");
 };
 //
 //  Adds appropriate classes to body and
@@ -227,13 +228,13 @@ function InitializeSticky() {
 //  "clone" of the sticky element to compensate for position:fixed
 //  page jump. Position fixed enabled by new attribute body/* 2 */.
 function EnableSticky() {
-    header.style.marginBottom = navHead.offsetHeight + "px";    /* 1 */
+    headerWrapper.style.marginBottom = navHeader.offsetHeight + "px";    /* 1 */
     body.classList.add("sticky-is-enabled");                    /* 2 */
 };
 //
 //  Reverse of the above.
 function DisableSticky() {
-    header.style.marginBottom = 0;                              /* 1 */
+    headerWrapper.style.marginBottom = 0;                              /* 1 */
     body.classList.remove('sticky-is-enabled');                 /* 2 */
 };
 //
