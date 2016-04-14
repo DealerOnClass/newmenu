@@ -1,0 +1,209 @@
+/*
+ *  Offcanvas Sidebar   START
+ */
+@media (max-width: 991px) {
+    /*
+     *  Structure & Reset
+     *
+     *  body - disable scroll when sidebar is open.
+     */
+    .sidebar-is-open {
+        overflow-y: hidden;
+    }
+    /*
+     *  backdrop - general structure
+     */
+    #navbar-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1030;
+    }
+    #navbar-backdrop.fade {
+        -webkit-transition: opacity .25s ease-in-out;
+                transition: opacity .25s ease-in-out;
+    }
+    /*
+     *  navbar - general reset
+     */
+    .navbar {
+        z-index: auto !important;
+        min-height: 0 !important;
+    }
+    #nav-container {
+        max-width: 100%;
+    }
+    /*
+     *  navbar-nav - general reset
+     */
+    .navbar-default .navbar-nav {
+        position: relative !important;
+        top: 0 !important;
+        padding: 0!important;
+        margin: 0!important;
+    }
+    .navbar-default .navbar-nav li a {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    /*
+     *  navbar-header - general reset
+     */
+    .navbar-header {
+        float: none;
+        display: block;
+    }
+    /*
+     *  navbar-toggle - general reset
+     */
+    .navbar-toggle {
+        float: right;
+        display: block;
+    }
+    /*
+     *  navbar-collapse - general reset
+     */
+    .navbar-collapse.collapse {
+        overflow-y: auto!important;
+        margin: 0;
+        padding: 0;
+        display: block;
+        position: fixed;
+        z-index: 1040;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100% !important;
+        max-height: 100% !important;
+        -webkit-transition: transform .25s ease-in-out;
+                transition: transform .25s ease-in-out;
+        -webkit-transform: translateX(280px);
+                transform: translateX(280px);
+    }
+    .sidebar-is-open .navbar-collapse {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    .navbar-collapse .navbar-nav,
+    .navbar-collapse .navbar-nav > li {
+        float: none;
+    }
+    /*
+     *  treat ".dropdown-menu" as collapsible items.
+     */
+    .navbar-collapse .navbar-nav .dropdown-menu {
+        position: relative;
+        float: none;
+        margin: 0;
+        box-shadow: none;
+    }
+    .navbar-collapse .navbar-nav .dropdown-menu.collapsing {
+        display: block;
+    }
+    /*
+     *  Themeing
+     *
+     *
+     *  navbar-backdrop
+     */
+    #navbar-backdrop {
+        background-color: rgba(0,0,0,0.75);
+    }
+    /*
+     *  navbar-collapse ( essentially the slide-out sidebar/nav )
+     */
+    .navbar-default #navbar-collapse {
+        background-color: white;
+    }
+    /*
+     * Colors
+     */
+    .navbar-default #navbar-collapse .navbar-nav > li > a {
+        color: #333;
+        border-radius: 0;
+    }
+
+    .navbar-default #navbar-collapse .navbar-nav > li > a:hover,
+    .navbar-default #navbar-collapse .navbar-nav > li > a:focus,
+    .navbar-default #navbar-collapse .navbar-nav > li > a:active {
+        background-color: #eee;
+    }
+
+    .navbar-default #navbar-collapse .navbar-nav .dropdown-menu {
+        background-color: #333;
+        border-radius: 0;
+    }
+
+    .navbar-default #navbar-collapse .navbar-nav .dropdown-menu > li > a {
+        color: #fff;
+    }
+
+    .navbar-default #navbar-collapse .navbar-nav .dropdown-menu > li > a:hover,
+    .navbar-default #navbar-collapse .navbar-nav .dropdown-menu > li > a:focus,
+    .navbar-default #navbar-collapse .navbar-nav .dropdown-menu > li > a:active {
+        background-color: #292828;
+    }
+    /*
+     * Spacing
+     */
+    .navbar-default #navbar-collapse .navbar-nav > li > a,
+    .navbar-default #navbar-collapse .navbar-nav .dropdown-menu > li > a {
+        padding: 15px;
+    }
+}
+
+/*
+ *  Offcanvas Sidebar   END
+ *
+ *
+ *  *   *   *   *   *   *   *   *
+ *  *   *   *   *   *   *   *   *
+ *  *   *   *   *   *   *   *   *
+ *
+ *
+ *  Sticky Header       START
+ *
+ *  Fix the ".navbar-header" to top when sticky state is true.
+ */
+.sticky-is-enabled .navbar-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1025;
+    background-color: inherit;
+}
+/*
+ *  Fix the header buttons to top when sticky state is true.
+ */
+.sticky-is-enabled .mobile .contact {
+    position: fixed;
+    z-index: 1030;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.sticky-is-enabled .mobile .contact.row {
+    margin: 0;
+}
+/*
+ *  Essentially undoing ".visible-xs".
+ */
+@media (min-width: 768px) and (max-width: 991px ) {
+    .headerWrapper .mobile.container {
+        display: block !important;
+    }
+    /*
+     *  Remove per #4 on comment - 03/25/16 02:15PM - DEV-10432
+     *
+     * .headerWrapper .mobile.container .brand {
+     *     display: none !important;
+     * }
+     *
+     */
+}
+/*
+ *  Sticky Header       END
+ */
